@@ -1,0 +1,76 @@
+esphome:
+  name: esp32-2
+  friendly_name: esp32-2
+#DEBO SENS SCD41
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+#api:
+#  encryption:
+#    key: "X6fgpIP21hNVpToV3do5ems2BagfQ/S/6zmwkvsapbA="
+
+api:
+
+  password: "myPassword"
+
+ota:
+  password: "ff831b31d05cd05e37b9de4a5c1356d5"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-2 Fallback Hotspot"
+    password: "tpmSO64apeIO"
+
+captive_portal:
+    
+#switch: 
+#  - name: LED_gelb
+#    platform: gpio
+#    pin: GPIO15
+#
+#binary_sensor:
+#  - platform: gpio
+#    pin: GPIO16
+#    name: "Soundsensor"
+#    filters:
+#      - delayed_off: 1s
+
+#light:
+#  - platform: rgb
+#    name: "RGB-LED"
+#    red: output_component1
+#    green: output_component2
+#    blue: output_component3
+## Example output entry
+#output:
+#  - platform: gpio
+#    id: output_component1
+#    pin: GPIO14
+#  - platform: gpio
+#    id: output_component2
+#    pin: GPIO27
+#  - platform: gpio
+#    id: output_component3
+#    pin: GPIO26
+
+#switch: 
+#  - name: LED_red
+#    platform: gpio
+#    pin: GPIO14
+#  - name: LED_green
+#    platform: gpio
+#    pin: GPIO27
+#  - name: LED_blue
+#    platform: gpio
+#    pin: GPIO26

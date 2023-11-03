@@ -1,0 +1,43 @@
+esphome:
+  name: dht22-sensor
+  friendly_name: dht22-sensor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+#api:
+#  encryption:
+#    key: "NIhQLj0YASuiqD9RkjoUFXXWbs8OAcA5Qjo8W0Tad1g="
+
+api:
+
+  password: "myPassword4"
+
+ota:
+  password: "94c4896acc8ca9b99601ddd035dedc60"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Dht22-Sensor Fallback Hotspot"
+    password: "8ne3cuzLCpXx"
+
+captive_portal:
+    
+sensor:
+  - platform: dht
+    pin: GPIO21
+    temperature:
+      name: "Living Room Temperature"
+    humidity:
+      name: "Living Room Humidity"
+    update_interval: 60s

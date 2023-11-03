@@ -1,0 +1,46 @@
+esphome:
+  name: soundsensor
+  friendly_name: soundsensor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+#api:
+#  encryption:
+#    key: "btGEG96H3JFgyG5QM17twpcaxTvur5/7IEyWRa5rvok="
+
+api:
+
+  password: "myPassword"
+
+ota:
+  password: "cb63b3b690737cce68c2bb793f157c0c"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Soundsensor Fallback Hotspot"
+    password: "VQGxgVjuOo9i"
+
+captive_portal:
+    
+switch: 
+  - name: LED_gelb
+    platform: gpio
+    pin: GPIO15
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO16
+    name: "Soundsensor"
+    filters:
+      - delayed_off: 1s
